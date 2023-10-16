@@ -593,7 +593,12 @@ master:
   ## @param master.tolerations Tolerations for master-elegible pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##
-  tolerations: []
+  tolerations:
+   - key: node-role
+     operator: Equal
+     value: infra
+     effect: NoSchedule
+
   ## @param master.priorityClassName master-elegible pods' priorityClassName
   ##
   priorityClassName: ""
